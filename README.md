@@ -1,6 +1,6 @@
 # Nuxt 3 Starter
 
-> 💚 A Better Nuxt 3 starter template
+> 💚 nuxt3 naiveui windicss 导航项目前端
 
 ## Preview
 
@@ -47,7 +47,7 @@ yarn install
 
 ### Development
 
-Start the development server on http://localhost:3088
+Start the development server on http://localhost
 
 ```bash
 yarn dev
@@ -60,13 +60,3 @@ Build the application for production:
 ```bash
 yarn build
 ```
-
-Checkout the [deployment documentation](https://v3.nuxtjs.org/docs/deployment).
-
-## Related Template
-
-* [vue3-starter](https://github.com/xiaoluoboding/vue3-starter) - 🖖 A Better Vue 3 Starter Template，generate by `create-vue`.
-
-## License
-
-MIT [@xiaoluoboding](https://github.com/xiaoluoboding)
