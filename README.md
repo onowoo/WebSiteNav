@@ -1,4 +1,4 @@
-# Nuxt 3 Starter
+# Nuxt3 导航
 
 > 💚 nuxt3 naiveui windicss 导航项目前端
 
