@@ -1,6 +1,6 @@
 <template>
-  <div class="text-secondary-darker">
-    <div class="py-20 px-12 grid grid-cols-2 gap-10">
+  <div class="text-secondary-darker w-[95%] md:w-[100%] mx-auto mt-15 md:mt-0">
+    <div class="md:py-20 md:px-12 grid grid-cols lg:grid-cols-2 xl:grid-cols-3 gap-10">
       <!-- Plugins -->
       <div class="rounded-md p-4 gradient-border shadow-lightBox dark:shadow-darkBox">
         <div class="mb-4">
@@ -97,20 +97,8 @@
       <div
         class="rounded-md p-4 gradient-border shadow-lightBox dark:shadow-darkBox flex justify-center items-center space-x-2">
         <div class="">
-          <button class="hover:text-primary px-2 py-1 focus:outline-transparent rounded-md" @click="toggleLocales">
-            <carbon:language class="h-5 w-5" />
-          </button>
-          <ClientOnly>
-            <button
-              class="px-2 py-1 focus:outline-transparent rounded-md bg-white dark:bg-black text-black dark:text-white rounded-md hover:text-primary"
-              @click="(e) => toggleDark()">
-              <carbon:moon class="h-5 w-5" v-if="isDark" />
-              <carbon:sun class="h-5 w-5" v-else />
-            </button>
-          </ClientOnly>
-          <button class="hover:text-primary px-2 py-1 focus:outline-transparent rounded-md" @click="(e) => gotoGitHub()">
-            <carbon:logo-github class="h-5 w-5" />
-          </button>
+          test
+
         </div>
       </div>
     </div>
@@ -121,7 +109,6 @@
 import { useI18n } from 'vue-i18n'
 
 import { useCounter } from '@/store/counter'
-import { isDark, toggleDark } from '@/composables/dark'
 
 const { t, locale, availableLocales } = useI18n()
 const counterStore = useCounter()
@@ -134,17 +121,6 @@ const { data } = await useAsyncData('/api/hello', () => {
     }
   })
 })
-
-const toggleLocales = () => {
-  // change to some real logic
-  const locales = availableLocales
-  console.log(locale.value)
-  locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length]
-}
-
-const gotoGitHub = () => {
-  window.open('https://github.com/xiaoluoboding/nuxt3-starter')
-}
 </script>
 
 <style scoped>
