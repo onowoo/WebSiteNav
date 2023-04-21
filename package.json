@@ -2,6 +2,7 @@
   "name": "nuxt3-starter",
   "description": "A better nuxt3 starter template",
   "private": false,
+  "packageManager": "yarn@1.22.19",
   "scripts": {
     "dev": "nuxt dev --port 8888",
     "build": "nuxt build",

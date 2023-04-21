@@ -22,13 +22,13 @@
       class="h-full py-8 px-4 dark:text-light-50 border-b dark:border-dark-800"
     >
       <n-collapse-item title="青铜" name="1">
-        <div class="pl-6 hover:bg-teal-300 p-2 rounded-md duration-500">
+        <div class="pl-6 hover:bg-[#02dc82] p-2 rounded-md duration-500">
           可以
         </div>
-        <div class="pl-6 hover:bg-teal-300 p-2 rounded-md duration-500">
+        <div class="pl-6 hover:bg-[#02dc82] p-2 rounded-md duration-500">
           可以
         </div>
-        <div class="pl-6 hover:bg-teal-300 p-2 rounded-md duration-500">
+        <div class="pl-6 hover:bg-[#02dc82] p-2 rounded-md duration-500">
           可以
         </div>
       </n-collapse-item>
