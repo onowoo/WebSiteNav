@@ -80,7 +80,7 @@ const toggleLocales = () => {
 }
 
 const gotoGitHub = () => {
-  window.open('https://github.com/xiaoluoboding/nuxt3-starter')
+  window.open('https://github.com/onowoo/WebSiteNav')
 }
 </script>
 <style scoped>
