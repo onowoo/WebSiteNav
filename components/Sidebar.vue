@@ -48,7 +48,7 @@
       </button>
       <ClientOnly>
         <button
-          class="px-2 py-1 focus:outline-transparent rounded-md text-black dark:text-white rounded-md hover:text-primary"
+          class="px-2 py-1 rounded-md text-black dark:text-white rounded-md hover:text-primary"
           @click="(e) => toggleDark()"
         >
           <carbon:moon class="h-5 w-5" v-if="isDark" />
@@ -56,7 +56,7 @@
         </button>
       </ClientOnly>
       <button
-        class="hover:text-primary px-2 py-1 focus:outline-transparent rounded-md"
+        class="hover:text-primary px-2 py-1 rounded-md"
         @click="(e) => gotoGitHub()"
       >
         <carbon:logo-github class="h-5 w-5" />
@@ -86,5 +86,9 @@ const gotoGitHub = () => {
 <style scoped>
 .n-collapse >>> .n-collapse-item:not(:first-child) {
   border-top: none;
+}
+button {
+  border:none;
+  outline: none;
 }
 </style>
