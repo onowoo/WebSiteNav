@@ -3,12 +3,14 @@ import { NConfigProvider,darkTheme, useOsTheme } from 'naive-ui'
 import { isDark, toggleDark } from '@/composables/dark'
 
 const naiveTheme = ref(null)
-// 监听 isDark 的变化
+
+onMounted(() => {
+  naiveTheme.value = isDark.value ? darkTheme : null
+})
 watch(isDark, (newVal) => {
   naiveTheme.value = newVal ? darkTheme : null
 })
-// 初始赋值
-naiveTheme.value = isDark.value ? darkTheme : null
+
 </script>
 
 <template>

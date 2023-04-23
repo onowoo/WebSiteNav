@@ -7,7 +7,7 @@ import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 export default defineNuxtConfig({
   app: {
     head: {
-      title: 'A Nuxt 3 WebSitenNav',
+      title: 'A Nuxt 3 WebSiteNav',
       link: [{ rel: 'icon', type: 'image/*', href: '/favicon.svg' }]
     }
   },
