@@ -3,18 +3,28 @@
 
       <div 
       class="rounded-md p-4 gradient-border shadow-lightBox dark:shadow-darkBox"
-      v-for="i in 8">
-        <div class="h-30 flex flex-col">
-            <div class="flex h-25">
-                <div class="flex justify-center items-center"><img src="https://dummyimage.com/80x80?text=Ai" class="rounded-full"/></div>
-                <div>
-                    <h1 class="font-medium text-2xl pl-3">Title</h1>
-                    <div class="pl-4 pt-1">desc</div>
-                </div>    
+      v-for="i in 8" :key="i">
+
+        <div class="h-30 flex flex-col w-[100%]">
+
+          <div class="flex">
+            <div class="flex justify-center items-center px-4"><img src="https://dummyimage.com/80x80?text=Ai" class="rounded-full min-w-16"/></div>
+            <div class="flex flex-col h-20">
+                <h1 class="font-medium text-2xl pl-3">这里是网站标题</h1>
+                <div class="pl-3 pt-1">这里是网站描述</div>
             </div>
-            <div class="h-5 flex items-end">
-                <div><n-rate allow-half /></div>
-            </div>
+          </div>
+          
+          <n-divider />
+          
+          <div class="flex justify-end items-start pl-3 gap-2 text-xs">
+            <div class="flex items-center gap-1"><carbon:view /> 5615</div>    
+            <div class="flex items-center gap-1"><carbon:thumbs-up />34</div>
+            <div class="flex items-center gap-1"><carbon:chat />76</div>
+            <div class="flex items-center gap-1"><carbon:time />3天前</div>
+            <div class="flex items-center gap-1"><carbon:tag /> 标签</div>
+          </div>
+          
         </div>
       </div>
     </div>

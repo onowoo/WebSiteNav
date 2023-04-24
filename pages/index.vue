@@ -1,4 +1,3 @@
 <template>
-  <!-- Nuxt automatically imports any components in your components/ directory -->
-  <Main />
+  <Main class="overflow-y-scroll"/>
 </template>
