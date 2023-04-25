@@ -1,25 +1,111 @@
 <template>
-    <n-collapse
-      arrow-placement="right"
-      class="h-full py-8 px-4 dark:text-light-50 border-b dark:border-dark-800"
-    >
-      <n-collapse-item title="青铜" name="1">
-        <div class="pl-6 hover:bg-[#02dc82] p-2 rounded-md duration-500">
-          可以
-        </div>
-        <div class="pl-6 hover:bg-[#02dc82] p-2 rounded-md duration-500">
-          可以
-        </div>
-        <div class="pl-6 hover:bg-[#02dc82] p-2 rounded-md duration-500">
-          可以
-        </div>
-      </n-collapse-item>
-      <n-collapse-item title="白银" name="2">
-        <div class="pl-6">很好</div>
-      </n-collapse-item>
-      <n-collapse-item title="黄金" name="3">
-        <div class="pl-6">真棒</div>
-      </n-collapse-item>
-    </n-collapse>
-    <UiFooterBar />
+  <n-space vertical class="h-screen mt-4">
+
+      <div
+        bordered
+        collapse-mode="width"
+        :collapsed-width="64"
+        :width="240"
+        show-trigger
+      >
+        <n-menu
+          :collapsed-width="64"
+          :collapsed-icon-size="22"
+          :options="menuOptions"
+        />
+      </div>
+    
+  </n-space>
+    
 </template>
+<script setup>
+import { NIcon } from "naive-ui";
+import {
+  BookOutline as BookIcon,
+  PersonOutline as PersonIcon,
+  WineOutline as WineIcon
+} from "@vicons/ionicons5";
+const renderIcon = (icon) => {
+  h(NIcon, null, { default: () => h(icon) });
+}
+
+const menuOptions = [
+  {
+    label: "且听风吟",
+    key: "hear-the-wind-sing",
+    icon: renderIcon(BookIcon)
+  },
+  {
+    label: "1973年的弹珠玩具",
+    key: "pinball-1973",
+    icon: renderIcon(BookIcon),
+    disabled: true,
+    children: [
+      {
+        label: "鼠",
+        key: "rat"
+      }
+    ]
+  },
+  {
+    label: "寻羊冒险记",
+    key: "a-wild-sheep-chase",
+    disabled: true,
+    icon: renderIcon(BookIcon)
+  },
+  {
+    label: "舞，舞，舞",
+    key: "dance-dance-dance",
+    icon: renderIcon(BookIcon),
+    children: [
+      {
+        type: "group",
+        label: "人物",
+        key: "people",
+        children: [
+          {
+            label: "叙事者",
+            key: "narrator",
+            icon: renderIcon(PersonIcon)
+          },
+          {
+            label: "羊男",
+            key: "sheep-man",
+            icon: renderIcon(PersonIcon)
+          }
+        ]
+      },
+      {
+        label: "饮品",
+        key: "beverage",
+        icon: renderIcon(WineIcon),
+        children: [
+          {
+            label: "威士忌",
+            key: "whisky"
+          }
+        ]
+      },
+      {
+        label: "食物",
+        key: "food",
+        children: [
+          {
+            label: "三明治",
+            key: "sandwich"
+          }
+        ]
+      },
+      {
+        label: "过去增多，未来减少",
+        key: "the-past-increases-the-future-recedes"
+      }
+    ]
+  }
+]
+</script>
+<style scoped>
+.n-collapse >>> .n-collapse-item:not(:first-child) {
+    border-top: 0px solid var(--n-divider-color);
+}
+</style>

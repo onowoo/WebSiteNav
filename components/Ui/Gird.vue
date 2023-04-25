@@ -2,22 +2,20 @@
     <div class="md:py-20 md:px-12 grid grid-cols lg:grid-cols-2 xl:grid-cols-3 gap-10">
 
       <div 
-      class="rounded-md p-4 gradient-border shadow-lightBox dark:shadow-darkBox"
+      class="rounded-md py-4 px-1 gradient-border shadow-lightBox dark:shadow-darkBox"
       v-for="i in 8" :key="i">
 
         <div class="h-30 flex flex-col w-[100%]">
 
-          <div class="flex">
-            <div class="flex justify-center items-center px-4"><img src="https://dummyimage.com/80x80?text=Ai" class="rounded-full min-w-16"/></div>
+          <div class="flex border-b dark:border-dark-200 pb-4">
+            <div class="flex justify-center items-center px-4"><img src="https://dummyimage.com/80x80?text=Ai" class="rounded-full min-w-16" style="-webkit-user-drag: none;"/></div>
             <div class="flex flex-col h-20">
-                <h1 class="font-medium text-2xl pl-3">这里是网站标题</h1>
-                <div class="pl-3 pt-1">这里是网站描述</div>
+                <h1 class="font-medium text-xl font-thin pl-3">这里是网站标题</h1>
+                <div class="pl-3 pt-1 text-xs text-thin">这里是网站描述</div>
             </div>
           </div>
           
-          <n-divider />
-          
-          <div class="flex justify-end items-start pl-3 gap-2 text-xs">
+          <div class="flex justify-end items-center py-3 px-2 gap-2 text-xs">
             <div class="flex items-center gap-1"><carbon:view /> 5615</div>    
             <div class="flex items-center gap-1"><carbon:thumbs-up />34</div>
             <div class="flex items-center gap-1"><carbon:chat />76</div>
