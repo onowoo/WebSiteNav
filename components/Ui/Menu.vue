@@ -1,111 +1,65 @@
 <template>
   <n-space vertical class="h-screen mt-4">
+    <n-menu 
+    :options="menuOptions"
+    :default-expanded-keys="defaultExpandedKeys"
+    >
+    </n-menu>
 
-      <div
-        bordered
-        collapse-mode="width"
-        :collapsed-width="64"
-        :width="240"
-        show-trigger
-      >
-        <n-menu
-          :collapsed-width="64"
-          :collapsed-icon-size="22"
-          :options="menuOptions"
-        />
-      </div>
-    
   </n-space>
-    
 </template>
 <script setup>
 import { NIcon } from "naive-ui";
-import {
-  BookOutline as BookIcon,
-  PersonOutline as PersonIcon,
-  WineOutline as WineIcon
-} from "@vicons/ionicons5";
-const renderIcon = (icon) => {
-  h(NIcon, null, { default: () => h(icon) });
+const menuOptions = []
+function renderIcon(imageUrl, className) {
+  return () => h(NIcon, null, { default: () => h("img", { src: fetchConfig.baseURL + imageUrl , class: className,}) });
+}
+const { data:cat } = await getChannel()
+const catList = JSON.parse(JSON.stringify(cat.value.channel))
+console.log(catList);
+// 遍历 catList
+for (let i = 0; i < catList.length; i++) {
+  const cat = catList[i];
+  // 如果 type 为 channel
+  if (cat.type === 'channel') {
+    // 过滤非中文字符
+    const chineseName = cat.name.replace(/&nbsp;└/g, '').replace(/&nbsp;├/g, '');
+    // 在 menuOptions 中添加对应元素
+    menuOptions.push({
+      label: chineseName,
+      key: cat.id,
+      icon: renderIcon(cat.image, "pt-0"),
+      children: cat.haschild === 1 ? [] : undefined
+    });
+  }
 }
 
-const menuOptions = [
-  {
-    label: "且听风吟",
-    key: "hear-the-wind-sing",
-    icon: renderIcon(BookIcon)
-  },
-  {
-    label: "1973年的弹珠玩具",
-    key: "pinball-1973",
-    icon: renderIcon(BookIcon),
-    disabled: true,
-    children: [
-      {
-        label: "鼠",
-        key: "rat"
-      }
-    ]
-  },
-  {
-    label: "寻羊冒险记",
-    key: "a-wild-sheep-chase",
-    disabled: true,
-    icon: renderIcon(BookIcon)
-  },
-  {
-    label: "舞，舞，舞",
-    key: "dance-dance-dance",
-    icon: renderIcon(BookIcon),
-    children: [
-      {
-        type: "group",
-        label: "人物",
-        key: "people",
-        children: [
-          {
-            label: "叙事者",
-            key: "narrator",
-            icon: renderIcon(PersonIcon)
-          },
-          {
-            label: "羊男",
-            key: "sheep-man",
-            icon: renderIcon(PersonIcon)
-          }
-        ]
-      },
-      {
-        label: "饮品",
-        key: "beverage",
-        icon: renderIcon(WineIcon),
-        children: [
-          {
-            label: "威士忌",
-            key: "whisky"
-          }
-        ]
-      },
-      {
-        label: "食物",
-        key: "food",
-        children: [
-          {
-            label: "三明治",
-            key: "sandwich"
-          }
-        ]
-      },
-      {
-        label: "过去增多，未来减少",
-        key: "the-past-increases-the-future-recedes"
-      }
-    ]
+// 遍历 catList
+for (let i = 0; i < catList.length; i++) {
+  const cat = catList[i];
+  // 如果 type 为 list
+  if (cat.type === 'list') {
+    // 查找对应的 menuOptions 元素
+    const menuOption = menuOptions.find(option => option.key === cat.parent_id);
+    // 如果找到了
+    if (menuOption) {
+      // 过滤非中文字符
+      const chineseName = cat.name.replace(/&nbsp;└/g, '').replace(/&nbsp;├/g, '');
+      // 在 children:[] 中添加对应元素
+      menuOption.children.push({
+        label: chineseName,
+        key: cat.id,
+        icon: renderIcon(cat.image, "pt-0"),
+      });
+    }
   }
-]
+}
+
+//根据key设定默认展开项，如需要可在后端api中设定
+const defaultExpandedKeys = [24]
 </script>
 <style scoped>
-.n-collapse >>> .n-collapse-item:not(:first-child) {
-    border-top: 0px solid var(--n-divider-color);
+.n-menu>>>.n-menu-item-content {
+  padding-right: 32px;
 }
 </style>

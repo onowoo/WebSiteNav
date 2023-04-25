@@ -13,6 +13,7 @@ export const fetchConfig = {
         '/addons/cms/api.sms/send',
         '/addons/cms/api.archives/index',
         '/addons/cms/api.archives/detail',
+        '/addons/cms/api.archives/get_channel',
         '/addons/cms/api.login/login',
         '/addons/cms/api.login/mobilelogin',
         '/addons/cms/api.login/register',
