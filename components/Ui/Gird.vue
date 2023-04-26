@@ -1,5 +1,5 @@
 <template>
-    <div class="md:py-20 md:px-12 py-8 px-3 grid grid-cols lg:grid-cols-2 xl:grid-cols-3 gap-10">
+    <div class="md:py-10 md:px-12 py-2 px-3 grid grid-cols lg:grid-cols-2 xl:grid-cols-3 md:gap-10 gap-3">
 
       <div 
       class="rounded-md py-4 px-1 gradient-border shadow-lightBox dark:shadow-darkBox"

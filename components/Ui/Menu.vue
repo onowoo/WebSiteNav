@@ -1,12 +1,18 @@
 <template>
-  <n-space vertical class="h-screen">
+<div class="hidden md:flex h-screen">
+  <n-space vertical>
     <n-menu 
     :options="menuOptions"
     :default-expanded-keys="defaultExpandedKeys"
     >
     </n-menu>
-
   </n-space>
+</div>
+<div class="flex md:hidden w-[100%] h-10 shadow-md">
+  <div class="w-15 flex items-center justify-center">logo</div>
+  <div class="w-[100%] flex items-center justify-center">title</div>
+  <div class="w-15 flex items-center justify-center">icon</div>
+</div>
 </template>
 <script setup>
 import { NIcon } from "naive-ui";
