@@ -3,31 +3,47 @@
 
       <div 
       class="rounded-md py-4 px-1 gradient-border shadow-lightBox dark:shadow-darkBox"
-      v-for="i in 8" :key="i">
+      v-for="(item,index) in postData" :key="index">
 
         <div class="h-30 flex flex-col w-[100%]">
 
           <div class="flex border-b dark:border-dark-200 pb-4">
-            <div class="flex justify-center items-center px-4"><img src="https://dummyimage.com/80x80?text=Ai" class="rounded-full min-w-16" style="-webkit-user-drag: none;"/></div>
+            <div class="flex justify-center items-center px-4"><img :src="item.image" class="rounded-full w-16" style="-webkit-user-drag: none;"/></div>
             <div class="flex flex-col h-20">
-                <h1 class="font-medium text-xl font-thin pl-3">这里是网站标题</h1>
-                <div class="pl-3 pt-1 text-xs text-thin">这里是网站描述</div>
+                <h1 class="font-medium text-xl font-thin pl-3">{{item.title}}</h1>
+                <div class="pl-3 pt-1 text-xs text-thin pr-2">{{item.description}}</div>
             </div>
           </div>
           
           <div class="flex justify-end items-center py-3 px-2 gap-2 text-xs">
-            <div class="flex items-center gap-1"><carbon:view /> 5615</div>    
-            <div class="flex items-center gap-1"><carbon:thumbs-up />34</div>
-            <div class="flex items-center gap-1"><carbon:chat />76</div>
+            <div class="flex items-center gap-1"><carbon:view /> {{item.views}}</div>    
+            <div class="flex items-center gap-1"><carbon:thumbs-up />{{item.likes}}</div>
+            <div class="flex items-center gap-1"><carbon:chat />{{item.comments}}</div>
             <div class="flex items-center gap-1"><carbon:time />3天前</div>
-            <div class="flex items-center gap-1"><carbon:tag /> 标签</div>
+            <div class="flex items-center gap-1"><carbon:tag /> {{item.tags || "标签"}}</div>
           </div>
           
         </div>
       </div>
     </div>
 </template>
+<script setup>
+const route = useRoute()
+const postData = ref([])
+const pushTime = ref(1 + "天前")
+if (route.name != "index") {
+  postData.value = inject("postData")
+} else {
+  const { data:post } = await getArchives()
+  postData.value = JSON.parse(JSON.stringify(post.value)).pageList.data
+  console.log(postData.value);
+  console.log(pushTime.value);
+}
+computed(() => {
+  lastDate(e)
+})
 
+</script>
 <style scoped>
 .gradient-border {
   @apply relative rounded-md w-[100%] backdrop-filter backdrop-blur-lg

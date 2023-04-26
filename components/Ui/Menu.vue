@@ -16,7 +16,6 @@ function renderIcon(imageUrl, className) {
 }
 const { data:cat } = await getChannel()
 const catList = JSON.parse(JSON.stringify(cat.value.channel))
-console.log(catList);
 // 遍历 catList
 for (let i = 0; i < catList.length; i++) {
   const cat = catList[i];
@@ -24,9 +23,20 @@ for (let i = 0; i < catList.length; i++) {
   if (cat.type === 'channel') {
     // 过滤非中文字符
     const chineseName = cat.name.replace(/&nbsp;└/g, '').replace(/&nbsp;├/g, '');
+    //一级菜单有子菜单不链接
+    const labelHref = ref(chineseName)
+    if (cat.haschild != 1) {
+      labelHref.value = () => h(
+      "a",
+      {
+        href: "/" + cat.diyname + "/" + cat.id,
+      },
+      chineseName
+    )
+    }
     // 在 menuOptions 中添加对应元素
     menuOptions.push({
-      label: chineseName,
+      label: labelHref.value,
       key: cat.id,
       icon: renderIcon(cat.image, "pt-0"),
       children: cat.haschild === 1 ? [] : undefined
@@ -47,7 +57,13 @@ for (let i = 0; i < catList.length; i++) {
       const chineseName = cat.name.replace(/&nbsp;└/g, '').replace(/&nbsp;├/g, '');
       // 在 children:[] 中添加对应元素
       menuOption.children.push({
-        label: chineseName,
+        label: () => h(
+          "a",
+          {
+            href: "/" + cat.diyname + "/" + cat.id,
+          },
+          chineseName
+        ),
         key: cat.id,
         icon: renderIcon(cat.image, "pt-0"),
       });

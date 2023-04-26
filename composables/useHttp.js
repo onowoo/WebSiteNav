@@ -116,6 +116,7 @@ export async function useHttp(key,url,options = {}){
 // GET请求
 export function useHttpGet(key,url,options = {}){
     options.method = "GET"
+    options.body = options.data;
     return useHttp(key,url,options)
 }
 

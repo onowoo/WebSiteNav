@@ -1,12 +1,12 @@
 export function getConfig(data){
-    return useHttpGet("getConfig","/addons/cms/api.common/init",{
+    return useHttpPost("getConfig","/addons/cms/api.common/init",{
         lazy:true,
         data
     })
 }
 // 验证码
 export function getCaptcha(data){
-    return useHttpGet("getCaptcha","/addons/cms/api.common/captcha",{
+    return useHttpPost("getCaptcha","/addons/cms/api.common/captcha",{
         lazy:true,
         data
     })
@@ -27,7 +27,7 @@ export function getSmsSend(data){
 }
 // 个人中心
 export function getUserIndex(){
-    return useHttpGet("getUserIndex","/addons/cms/api.user/index",{
+    return useHttpPost("getUserIndex","/addons/cms/api.user/index",{
         lazy:true,
     })
 }
@@ -40,7 +40,7 @@ export function getUserProfile(data){
 }
 // 注销登录
 export function goUserLogout(data){
-    return useHttpGet("getUserIndex","/addons/cms/api.user/logout",{
+    return useHttpPost("getUserIndex","/addons/cms/api.user/logout",{
         lazy:true,
         data
     })
@@ -93,9 +93,9 @@ export function goResetpwd(data){
 
 //列表页
 export function getArchives(data){
-    return useHttpGet("getArchives","/addons/cms/api.archives/index",{
+    return useHttpPost("getArchives","/addons/cms/api.archives/index",{
         lazy:true,
-        data
+        data,
     })
 }
 //详情页
@@ -121,14 +121,14 @@ export function getArchivesOrder(data){
 }
 //获取栏目接口，一般用于发布文章时调用
 export function getChannel(data){
-    return useHttpGet("getChannel","/addons/cms/api.archives/get_channel",{
+    return useHttpPost("getChannel","/addons/cms/api.archives/get_channel",{
         lazy:true,
         data,
     })
 }
 //获取栏目字段列表，一般用于发布文章
 export function getChannelFields(data){
-    return useHttpGet("getChannelFields","/addons/cms/api.archives/get_channel_fields",{
+    return useHttpPost("getChannelFields","/addons/cms/api.archives/get_channel_fields",{
         lazy:true,
         data
     })
@@ -156,35 +156,35 @@ export function goCommentIndex(data){
 }
 //搜索
 export function search(data){
-    return useHttpGet("search","/addons/cms/api.search/index",{
+    return useHttpPost("search","/addons/cms/api.search/index",{
         lazy:true,
         data
     })
 }
 //tag
 export function tagIndex(data){
-    return useHttpGet("tagIndex","/addons/cms/api.tag/index",{
+    return useHttpPost("tagIndex","/addons/cms/api.tag/index",{
         lazy:true,
         data
     })
 }
 //二级栏目
 export function getCategory(data){
-    return useHttpGet("getCategory","/addons/cms/api.common/getCategory",{
+    return useHttpPost("getCategory","/addons/cms/api.common/getCategory",{
         lazy:true,
         data
     })
 }
 //单页详情
 export function getPageDetail(data){
-    return useHttpGet("getPageDetail","/addons/cms/api.page/detail",{
+    return useHttpPost("getPageDetail","/addons/cms/api.page/detail",{
         lazy:true,
         data
     })
 }
 //收藏
 export function getCollection(data){
-    return useHttpGet("getCollection","/addons/cms/api.collection/index",{
+    return useHttpPost("getCollection","/addons/cms/api.collection/index",{
         lazy:true,
         data
     })
@@ -215,35 +215,35 @@ export function deleteArchives(data){
 }
 //查询我发布的文档接口
 export function myArchives(data){
-    return useHttpGet("myArchives","/addons/cms/api.archives/my",{
+    return useHttpPost("myArchives","/addons/cms/api.archives/my",{
         lazy:true,
         data
     })
 }
 //我发表的评论
 export function getMyComment(data){
-    return useHttpGet("myArchives","/addons/cms/api.my/comment",{
+    return useHttpPost("myArchives","/addons/cms/api.my/comment",{
         lazy:true,
         data
     })
 }
 //我的消费订单
 export function getOrder(data){
-    return useHttpGet("getOrder","/addons/cms/api.my/order",{
+    return useHttpPost("getOrder","/addons/cms/api.my/order",{
         lazy:true,
         data
     })
 }
 //用户余额日志接口
 export function getMoneyLogs(data){
-    return useHttpGet("useHttpGet","/addons/cms/api.the_logs/money",{
+    return useHttpPost("useHttpPost","/addons/cms/api.the_logs/money",{
         lazy:true,
         data
     })
 }
 //用户积分日志接口
 export function getScoreLogs(data){
-    return useHttpGet("getScoreLogs","/addons/cms/api.the_logs/score",{
+    return useHttpPost("getScoreLogs","/addons/cms/api.the_logs/score",{
         lazy:true,
         data
     })
