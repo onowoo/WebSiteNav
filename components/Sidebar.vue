@@ -9,6 +9,6 @@
   </div>
 
   <div class="flex md:hidden">
-    mobile menu
+    <UiMenu />
   </div>
 </template>

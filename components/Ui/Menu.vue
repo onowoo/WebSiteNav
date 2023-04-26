@@ -1,5 +1,5 @@
 <template>
-  <n-space vertical class="h-screen mt-4">
+  <n-space vertical class="h-screen">
     <n-menu 
     :options="menuOptions"
     :default-expanded-keys="defaultExpandedKeys"
