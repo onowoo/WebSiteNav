@@ -1,9 +1,10 @@
 <template>
-<div class="hidden md:flex h-screen">
-  <n-space vertical>
+<div class="hidden md:flex h-[100%]">
+  <n-space vertical class="w-[100%]">
     <n-menu 
     :options="menuOptions"
     :default-expanded-keys="defaultExpandedKeys"
+    class="text-xs"
     >
     </n-menu>
   </n-space>
@@ -16,12 +17,14 @@
 </template>
 <script setup>
 import { NIcon } from "naive-ui";
+import { pinyin } from "pinyin-pro"
 const menuOptions = []
 function renderIcon(imageUrl, className) {
   return () => h(NIcon, null, { default: () => h("img", { src: fetchConfig.baseURL + imageUrl , class: className,}) });
 }
 const { data:cat } = await getChannel()
 const catList = JSON.parse(JSON.stringify(cat.value.channel))
+console.log(catList);
 // 遍历 catList
 for (let i = 0; i < catList.length; i++) {
   const cat = catList[i];
@@ -35,7 +38,7 @@ for (let i = 0; i < catList.length; i++) {
       labelHref.value = () => h(
       "a",
       {
-        href: "/" + cat.diyname + "/" + cat.id,
+        href: "/" + pinyin(chineseName,{toneType:'none'}) + "/" + cat.id,
       },
       chineseName
     )
@@ -66,19 +69,20 @@ for (let i = 0; i < catList.length; i++) {
         label: () => h(
           "a",
           {
-            href: "/" + cat.diyname + "/" + cat.id,
+            href: "/" + pinyin(chineseName,{toneType:'none'}).replace(/\s+/g, '') + "/" + cat.id,
           },
           chineseName
         ),
         key: cat.id,
         icon: renderIcon(cat.image, "pt-0"),
+        children: cat.haschild === 1 ? [] : undefined
       });
+      
     }
   }
 }
-
-//根据key设定默认展开项，如需要可在后端api中设定
-const defaultExpandedKeys = [24]
+//默认展开的菜单
+const defaultExpandedKeys = [catList[0].id]
 </script>
 <style scoped>
 .n-menu>>>.n-menu-item-content {
