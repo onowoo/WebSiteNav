@@ -4,5 +4,6 @@
   ],
   "i18n-ally.enabledParsers": [
     "json"
-  ]
+  ],
+  "nuxt.isNuxtApp": false
 }

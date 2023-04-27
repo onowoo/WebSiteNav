@@ -1,5 +1,5 @@
 <template>
-    <div class="h-15 flex justify-center items-center gap-8 border-t dark:border-dark-300">
+    <div class="h-15 flex justify-center items-center gap-8">
       <button
         class="hover:text-primary px-2 py-1 focus:outline-transparent rounded-md"
         @click="toggleLocales"

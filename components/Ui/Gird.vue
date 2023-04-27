@@ -8,10 +8,10 @@
         <div class="h-30 flex flex-col w-[100%]">
 
           <div class="flex border-b dark:border-dark-200 pb-4">
-            <div class="flex justify-center items-center px-4"><img :src="item.image" class="rounded-full w-16" style="-webkit-user-drag: none;"/></div>
+            <div class="flex justify-center items-center px-4"><img :src="item.image" class="rounded-full" width="64" height="64" style="-webkit-user-drag: none;"/></div>
             <div class="flex flex-col h-20">
                 <h1 class="font-medium text-xl font-thin pl-3">{{item.title}}</h1>
-                <div class="pl-3 pt-1 text-xs text-thin pr-2">{{item.description}}</div>
+                <div class="pl-3 pt-1 text-xs text-thin pr-2" v-html="item.description.slice(0, 60)"></div>
             </div>
           </div>
           
@@ -20,7 +20,6 @@
             <div class="flex items-center gap-1"><carbon:thumbs-up />{{item.likes}}</div>
             <div class="flex items-center gap-1"><carbon:chat />{{item.comments}}</div>
             <div class="flex items-center gap-1"><carbon:time />3天前</div>
-            <div class="flex items-center gap-1"><carbon:tag /> {{item.tags || "标签"}}</div>
           </div>
           
         </div>
