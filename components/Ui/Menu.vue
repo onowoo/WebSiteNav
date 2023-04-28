@@ -105,11 +105,14 @@ for (let i = 0; i < catList.length; i++) {
 const defaultExpandedKeys = [catList[0].id]
 //移动页NAV标题
 const mobileName = ref("首页")
-if (route.params.id) {
+if (route.params.list) {
   mobileName.value = catList.find(element => element.id === Number(route.params.id)).name.replace(/&nbsp;└/g, '').replace(/&nbsp;├/g, '').replace(/\s+/g, '')
+} else if (!route.params.list && route.params.id) {
+  mobileName.value = "详情"
 } else {
   mobileName.value = "首页"
 }
+console.log(route.params);
 //移动菜单激活状态
 const mobileMenuStatus = ref(false)
 const placement = 'left'
