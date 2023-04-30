@@ -37,7 +37,6 @@
 </template>
 <script setup>
 import { NIcon } from "naive-ui";
-import { pinyin } from "pinyin-pro"
 const route = useRoute()
 const menuOptions = []
 function renderIcon(imageUrl, className) {
@@ -59,7 +58,7 @@ for (let i = 0; i < catList.length; i++) {
       labelHref.value = () => h(
       "a",
       {
-        href: "/" + pinyin(chineseName,{toneType:'none'}) + "/" + cat.id,
+        href: "/" + chineseName + "/" + cat.id,
       },
       chineseName
     )
@@ -89,7 +88,7 @@ for (let i = 0; i < catList.length; i++) {
         label: () => h(
           "a",
           {
-            href: "/" + pinyin(chineseName,{toneType:'none'}).replace(/\s+/g, '') + "/" + cat.id,
+            href: "/" + chineseName.replace(/\s+/g, '') + "/" + cat.id,
           },
           chineseName
         ),
