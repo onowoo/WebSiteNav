@@ -4,7 +4,7 @@
       <div 
       class="rounded-md py-4 px-1 gradient-border shadow-lightBox dark:shadow-darkBox "
       v-for="(item,index) in postData" :key="index">
-        <nuxt-link :to="'/article_' + item.id">
+        <nuxt-link :to="'/archives/' + item.id">
           <div class="h-30 flex flex-col w-[100%] cursor-pointer">
 
             <div class="flex border-b dark:border-dark-200 pb-4">

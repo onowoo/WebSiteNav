@@ -16,7 +16,7 @@ watch(isDark, (newVal) => {
 <template>
   <Html>
     <Body
-      class="antialiased duration-300 transition-colors text-gray-800 dark:text-gray-200 dark:bg-dark-300"
+      class="antialiased duration-300 transition-colors text-gray-800 dark:text-gray-200 bg-[#ecf0f3] dark:bg-[#1D1E22]"
     >
       <NConfigProvider inline-theme-disabled :theme="naiveTheme">
         <NuxtLayout>

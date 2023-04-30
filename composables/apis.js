@@ -94,28 +94,24 @@ export function goResetpwd(data){
 //列表页
 export function getArchives(data){
     return useHttpPost("getArchives","/addons/cms/api.archives/index",{
-        lazy:true,
         data,
     })
 }
 //详情页
 export function getArchivesDetail(data){
     return useHttpPost("getArchivesDetail","/addons/cms/api.archives/detail",{
-        lazy:true,
         data
     })
 }
 //赞与踩
 export function getArchivesVote(data){
     return useHttpPost("getArchivesVote","/addons/cms/api.archives/vote",{
-        lazy:true,
         data
     })
 }
 //提交订单接口
 export function getArchivesOrder(data){
     return useHttpPost("getArchivesOrder","/addons/cms/api.archives/order",{
-        lazy:true,
         data
     })
 }

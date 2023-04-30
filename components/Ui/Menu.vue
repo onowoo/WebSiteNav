@@ -45,7 +45,7 @@ function renderIcon(imageUrl, className) {
 }
 const { data:cat } = await getChannel()
 const catList = JSON.parse(JSON.stringify(cat.value.channel))
-console.log(catList);
+// console.log(catList);
 // 遍历 catList
 for (let i = 0; i < catList.length; i++) {
   const cat = catList[i];
@@ -112,14 +112,14 @@ if (route.params.list) {
 } else {
   mobileName.value = "首页"
 }
-console.log(route.params);
+// console.log(route.params);
 //移动菜单激活状态
 const mobileMenuStatus = ref(false)
 const placement = 'left'
 const changeMobileMenuStatus = () => {
   mobileMenuStatus.value = true
 }
-console.log(mobileMenuStatus.value);
+// console.log(mobileMenuStatus.value);
 </script>
 <style scoped>
 .n-menu>>>.n-menu-item-content {
