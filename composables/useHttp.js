@@ -75,7 +75,6 @@ export async function useHttp(key,url,options = {}){
         const data = ref(null)
         const error = ref(null)
         return await $fetch(url,options).then(res=>{
-            data.value = res.data
             return {
                 data,
                 error

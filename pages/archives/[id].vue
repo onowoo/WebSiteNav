@@ -224,7 +224,7 @@ const query = {
 
 const { data: detail ,pending,error } = await getArchivesDetail(query)
 getDetail.value = detail ? JSON.parse(JSON.stringify(detail.value)) : false
-console.log(getDetail.value)
+// console.log(detail.value)
 const blockQuery = {
     limit : 10,
     page : 1,
@@ -232,12 +232,9 @@ const blockQuery = {
     lazy: false
 }
 const {data:block} = await getBlock(blockQuery)
-console.log(block);
-const blockAd = block ? JSON.parse(JSON.stringify(block.value.rows)) : false
-
 const topAd = ref([])
 const bottomAd = ref([])
-blockAd.forEach(item => {
+block.value.rows.forEach(item => {
   if (item.name === 'wxappfocus') {
     topAd.value.push(item)
   } else if (item.name === 'uniappfocus') {
@@ -245,7 +242,7 @@ blockAd.forEach(item => {
   }
 })
 
-console.log(blockAd);
+// console.log(blockAd);
 const rateMap = {
   100: 5,
   90: 4.5,
