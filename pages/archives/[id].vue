@@ -232,7 +232,7 @@ const blockQuery = {
     lazy: false
 }
 const {data:block} = await getBlock(blockQuery)
-
+console.log(block);
 const blockAd = block ? JSON.parse(JSON.stringify(block.value.rows)) : false
 
 const topAd = ref([])
