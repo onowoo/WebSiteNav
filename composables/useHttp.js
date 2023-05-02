@@ -2,7 +2,7 @@ import {
     createDiscreteApi
 } from "naive-ui"
 export const fetchConfig = {
-    baseURL:"https://api.lianun.com:442",
+    baseURL:"http://api.lianun.com:81",
     headers:{
         'content-type': 'application/json'
     },
