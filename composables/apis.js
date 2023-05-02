@@ -4,6 +4,13 @@ export function getConfig(data){
         data
     })
 }
+//区块
+export function getBlock(data){
+    return useHttpPost("getBlock","/index.php/api/cms_block/index",{
+        lazy:true,
+        data
+    })
+}
 // 验证码
 export function getCaptcha(data){
     return useHttpPost("getCaptcha","/addons/cms/api.common/captcha",{

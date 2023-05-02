@@ -8,6 +8,7 @@ export const fetchConfig = {
     },
     noLoginUrl: [
         '/addons/cms/api.common/init',
+        '/index.php/api/cms_block/index',
         '/addons/cms/api.common/captcha',
         '/addons/cms/api.ems/send',
         '/addons/cms/api.sms/send',
