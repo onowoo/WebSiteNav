@@ -50,28 +50,28 @@
                             </div>
                         </div>
                     </div>
-                    <div class="h-[10%] flex justify-center items-center gap-5 md:gap-10 text-2xl mt-3 text-dark-50 dark:text-[#21dbf5]">
+                    <div class="h-[10%] flex justify-center items-center gap-5 md:gap-10 text-2xl mt-3 text-dark-50">
                         <n-popover trigger="hover" class="p-3" content-style="backround-color:#555555">
                             <template #trigger>
-                                <n-button quaternary round size="40" class="p-3 rounded-full"><carbon:view-filled /> </n-button>
+                                <n-button quaternary round size="40" class="p-3 rounded-full dark:text-[#21dbf5]"><carbon:view-filled /> </n-button>
                             </template>
                             <span>查看次数：{{ getDetail.archivesInfo.views }} 次</span>
                         </n-popover>
                         <n-popover trigger="hover">
                             <template #trigger>
-                                <n-button quaternary round size="40" class="p-3 rounded-full"><carbon:favorite-filled /></n-button>
+                                <n-button quaternary round size="40" class="p-3 rounded-full dark:text-[#21dbf5]"><carbon:favorite-filled /></n-button>
                             </template>
                             <span>点我收藏此文</span>
                         </n-popover>
                         <n-popover trigger="hover">
                             <template #trigger>
-                                <n-button quaternary round size="40" class="p-3 rounded-full"><carbon:thumbs-up-filled /></n-button>
+                                <n-button quaternary round size="40" class="p-3 rounded-full dark:text-[#21dbf5]"><carbon:thumbs-up-filled /></n-button>
                             </template>
                             <span>已被 {{ getDetail.archivesInfo.likes }} 人点赞</span>
                         </n-popover>
                         <n-popover trigger="hover" class="flex items-center">
                             <template #trigger>
-                                <n-button quaternary round size="40" class="p-3 rounded-full" @click="showModal = true">
+                                <n-button quaternary round size="40" class="p-3 rounded-full dark:text-[#21dbf5]" @click="showModal = true">
                                     <n-icon :size="30"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"><path d="M408 48H104a72.08 72.08 0 0 0-72 72v192a72.08 72.08 0 0 0 72 72h24v64a16 16 0 0 0 26.25 12.29L245.74 384H408a72.08 72.08 0 0 0 72-72V120a72.08 72.08 0 0 0-72-72zM160 248a32 32 0 1 1 32-32a32 32 0 0 1-32 32zm96 0a32 32 0 1 1 32-32a32 32 0 0 1-32 32zm96 0a32 32 0 1 1 32-32a32 32 0 0 1-32 32z" fill="currentColor"></path></svg></n-icon>
                                 </n-button>
                             </template>
@@ -216,7 +216,6 @@
 const route = useRoute()
 const showModal = ref(false)
 const getDetail = ref({})
-const blockAd = ref({})
 const rateValue = ref(0)
 const query = { 
     id: route.params.id,
@@ -233,11 +232,12 @@ const blockQuery = {
     lazy: false
 }
 const {data:block} = await getBlock(blockQuery)
-blockAd.value = block ? JSON.parse(JSON.stringify(block.value.rows)) : false
-console.log(typeof blockAd.value, blockAd.value)
+
+const blockAd = block ? JSON.parse(JSON.stringify(block.value.rows)) : false
+
 const topAd = ref([])
 const bottomAd = ref([])
-blockAd.value.forEach(item => {
+blockAd.forEach(item => {
   if (item.name === 'wxappfocus') {
     topAd.value.push(item)
   } else if (item.name === 'uniappfocus') {
